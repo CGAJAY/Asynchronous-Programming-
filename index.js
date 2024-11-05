@@ -35,3 +35,21 @@ async function awaitCall() {
 
 // Example usage:
 awaitCall();
+
+// Task 04: Awaiting Concurrent Requests
+async function concurrentRequests() {
+	const apiCall1 = new Promise((resolve) =>
+		setTimeout(() => resolve("Data from API 1"), 1000)
+	);
+	const apiCall2 = new Promise((resolve) =>
+		setTimeout(() => resolve("Data from API 2"), 1500)
+	);
+
+	// Wait for both promises to resolve concurrently
+	const results = await Promise.all([apiCall1, apiCall2]);
+
+	console.log("Combined results:", results); // Log the combined results
+}
+
+// Example usage:
+concurrentRequests();
